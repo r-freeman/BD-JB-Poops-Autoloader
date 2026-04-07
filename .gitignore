@@ -1,0 +1,11 @@
+.idea/
+*.iml
+*.class
+bdj-sdk/
+ps5-payload-sdk.zip
+ps5_autoload_elf/ps5_autoload.elf
+ps5_killdiscplayer_elf/ps5_killdiscplayer.elf
+BD-JB-Poops-Autoloader.iml
+BD-JB-Poops-Autoloader.iso
+discdir/
+build/
