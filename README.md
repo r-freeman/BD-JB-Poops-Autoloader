@@ -9,11 +9,8 @@ allows execution of [Poops](https://github.com/jaigaresc/Poops-PS5-Java) to take
 
 ## Requirements
 
-* PS5 with firmware <=7.61 or up to 12.00
-  using [SWRR](https://limitedrungames.com/products/limited-run-290-star-wars-racer-revenge-premium-edition-ps4)
-  and [BD-UN-JB](https://github.com/Gezine/BD-UN-JB) to unpatch the Blu-ray stack. Alternatively, you can use an existing
-  jailbreak such as [YTJB](https://github.com/Gezine/Y2JB) or [Netflix-N-Hack](https://github.com/NetflixNHack/Netflix-N-Hack) to
-  unpatch the Blu-ray stack on firmware up to 10.01.
+* PS5 with firmware <=7.61 or up to 12.00 using [SWRR](https://limitedrungames.com/products/limited-run-290-star-wars-racer-revenge-premium-edition-ps4) and [BD-UN-JB](https://github.com/Gezine/BD-UN-JB) to unpatch the Blu-ray stack. 
+* Alternatively, you can use an existing jailbreak such as [YTJB](https://github.com/Gezine/Y2JB) or [Netflix-N-Hack](https://github.com/NetflixNHack/Netflix-N-Hack) to unpatch the Blu-ray stack on firmware up to 10.01.
 * Blu-ray drive and BD-RE or BD-R disc to burn the ISO.
 
 ## Features
@@ -70,7 +67,7 @@ disc using ImgBurn or similar software.
 
 ### Todo
 
-- [ ] Add CI/CD pipeline using GitHub Actions.
+- [x] Add CI/CD pipeline using GitHub Actions.
 
 ---
 
