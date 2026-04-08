@@ -4,11 +4,14 @@ on:
   push:
     branches:
       - 'main'
-      - 'feature/**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
 
     steps:
       - name: Checkout
@@ -20,16 +23,6 @@ jobs:
         with:
           token: ${{ github.token }}
           branch: main
-
-      - name: Create Release
-        uses: ncipollo/release-action@v1.20.0
-        with:
-          allowUpdates: true
-          draft: false
-          makeLatest: true
-          name: ${{ steps.semver.outputs.next }}
-          body: Changelog Contents
-          token: ${{ github.token }}
 
       - name: Set up bdj-sdk
         run: |
@@ -53,11 +46,16 @@ jobs:
         run: make
         continue-on-error: false
 
-      - name: Upload artifact
-        id: upload_artifact
-        uses: actions/upload-artifact@v4
+      - name: Create Release
+        uses: ncipollo/release-action@v1.20.0
         with:
-          path: BD-JB-Poops-Autoloader.iso
+          allowUpdates: true
+          draft: false
+          makeLatest: true
           name: BD-JB-Poops-Autoloader
+          tag: ${{steps.semver.outputs.next}}
+          generateReleaseNotes: true
+          artifacts: "BD-JB-Poops-Autoloader.iso"
+
 
           
