@@ -2,27 +2,35 @@
 
 ## About this project
 
-This project is based on [BD-UN-JB-Poops-Autoloader](https://github.com/owendswang/BD-UN-JB-Poops-Autoloader) by [owenswang](https://github.com/owendswang), which is a fork of [BD-UN-JB](https://github.com/Gezine/BD-UN-JB) by [Gezine](https://github.com/Gezine). BD-JB-Poops-Autoloader takes advantage of an exploit in the PS5 Blu-ray stack, which allows execution of [Poops](https://github.com/jaigaresc/Poops-PS5-Java) to take full control of the PS5 kernel.
+This project is based on [BD-UN-JB-Poops-Autoloader](https://github.com/owendswang/BD-UN-JB-Poops-Autoloader)
+by [owenswang](https://github.com/owendswang), which is a fork of [BD-UN-JB](https://github.com/Gezine/BD-UN-JB)
+by [Gezine](https://github.com/Gezine). BD-JB-Poops-Autoloader takes advantage of an exploit in the PS5 Blu-ray stack, which
+allows execution of [Poops](https://github.com/jaigaresc/Poops-PS5-Java) to take full control of the PS5 kernel.
 
 ## Requirements
 
-* PS5 with firmware <=7.61 or up to 12.00 using [SWRR](https://limitedrungames.com/products/limited-run-290-star-wars-racer-revenge-premium-edition-ps4) and [BD-UN-JB](https://github.com/Gezine/BD-UN-JB) to unpatch the Blu-ray stack.
+* PS5 with firmware <=7.61 or up to 12.00
+  using [SWRR](https://limitedrungames.com/products/limited-run-290-star-wars-racer-revenge-premium-edition-ps4)
+  and [BD-UN-JB](https://github.com/Gezine/BD-UN-JB) to unpatch the Blu-ray stack. Alternatively, you can use an existing
+  jailbreak such as [YTJB](https://github.com/Gezine/Y2JB) or [Netflix-N-Hack](https://github.com/NetflixNHack/Netflix-N-Hack) to
+  unpatch the Blu-ray stack on firmware up to 10.01.
 * Blu-ray drive and BD-RE or BD-R disc to burn the ISO.
-
 
 ## Features
 
 * ps5_autoload.elf which allows you to load ELF payloads from a USB device.
 * ps5_killdiscplayer.elf automatically closes the disc player.
-* Poops-PS5-Java v1.1 which was ported to Java by jaigaresc.
+* Poops-PS5-Java v1.1 ported to Java by jaigaresc.
 
 ## Build and compile
 
-Use Debian-based environment to build and compile the project. I'm using [wsl](https://learn.microsoft.com/en-us/windows/wsl/install) with Ubuntu distribution on Windows 11. After installing wsl and Ubuntu, start the environment using `wsl -d Ubuntu` and follow the instructions below to install the project dependencies.
+Use Debian-based environment to build and compile the project. I'm
+using [wsl](https://learn.microsoft.com/en-us/windows/wsl/install) with Ubuntu distribution on Windows 11. After installing wsl
+and Ubuntu, start the environment using `wsl -d Ubuntu` and follow the instructions below to install the project dependencies.
 
 ### Set up bdj-sdk
 
-```bash
+```console
 ryan@localhost:~$ sudo apt-get update && sudo apt-get upgrade
 ryan@localhost:~$ sudo apt-get install build-essential libbsd-dev git pkg-config openjdk-8-jdk-headless
 ryan@localhost:~$ git clone --recurse-submodules https://github.com/john-tornblom/bdj-sdk
@@ -37,27 +45,28 @@ ryan@localhost:~$ make -C bdj-sdk/target
 
 Install dependencies
 
-```bash
+```console
 ryan@localhost:~$ sudo apt-get install zip bash clang-18 lld-18
 ryan@localhost:~$ sudo apt-get install socat cmake meson pkg-config
 ```
 
 Download and install ps5-payload-sdk
 
-```bash
+```console
 ryan@localhost:~$ wget https://github.com/ps5-payload-dev/sdk/releases/latest/download/ps5-payload-sdk.zip
 ryan@localhost:~$ sudo unzip -d /opt ps5-payload-sdk.zip
 ```
 
 E: Unable to locate package clang-18
 
-```bash
+```console
 ryan@localhost:~$ wget -qO- https://apt.llvm.org/llvm.sh | bash -s -- 18
 ```
 
 ### Compile the project
 
-Use `make` at the project root to compile ps5_autoload.elf, ps5_killdiscplayer.elf and BD-JB-Poops-Autoloader.iso. Burn the ISO to disc using ImgBurn or similar software.
+Use `make` at the project root to compile ps5_autoload.elf, ps5_killdiscplayer.elf and BD-JB-Poops-Autoloader.iso. Burn the ISO to
+disc using ImgBurn or similar software.
 
 ### Todo
 
