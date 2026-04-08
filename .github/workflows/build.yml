@@ -1,0 +1,63 @@
+name: Build ISO
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'feature/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Get Next Version
+        id: semver
+        uses: ietf-tools/semver-action@v1
+        with:
+          token: ${{ github.token }}
+          branch: main
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1.20.0
+        with:
+          allowUpdates: true
+          draft: false
+          makeLatest: true
+          name: ${{ steps.semver.outputs.next }}
+          body: Changelog Contents
+          token: ${{ github.token }}
+
+      - name: Set up bdj-sdk
+        run: |
+          sudo apt-get update
+          sudo apt-get install build-essential libbsd-dev git pkg-config openjdk-8-jdk-headless
+          git clone --recurse-submodules https://github.com/john-tornblom/bdj-sdk
+          ln -s /usr/lib/jvm/java-8-openjdk-amd64 bdj-sdk/host/jdk8
+          ln -s /usr/lib/jvm/java-11-openjdk-amd64 bdj-sdk/host/jdk11
+          make -C bdj-sdk/host/src/makefs_termux
+          make -C bdj-sdk/host/src/makefs_termux install DESTDIR=$PWD/bdj-sdk/host
+          make -C bdj-sdk/target
+
+      - name: Set up ps5-payload-sdk
+        run: |
+          sudo apt-get install zip bash clang-18 lld-18
+          sudo apt-get install socat cmake meson pkg-config
+          wget https://github.com/ps5-payload-dev/sdk/releases/latest/download/ps5-payload-sdk.zip
+          sudo unzip -d /opt ps5-payload-sdk.zip
+
+      - name: Make
+        run: make
+        continue-on-error: false
+
+      - name: Upload artifact
+        id: upload_artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: BD-JB-Poops-Autoloader.iso
+          name: BD-JB-Poops-Autoloader
+
+          
