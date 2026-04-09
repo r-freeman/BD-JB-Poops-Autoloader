@@ -41,6 +41,7 @@ jobs:
           sudo apt-get install socat cmake meson pkg-config
           wget https://github.com/ps5-payload-dev/sdk/releases/latest/download/ps5-payload-sdk.zip
           sudo unzip -d /opt ps5-payload-sdk.zip
+          sudo rm ps5-payload-sdk.zip
 
       - name: Make
         run: make

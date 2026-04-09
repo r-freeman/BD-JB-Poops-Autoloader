@@ -52,6 +52,7 @@ Download and install ps5-payload-sdk
 ```console
 ryan@localhost:~$ wget https://github.com/ps5-payload-dev/sdk/releases/latest/download/ps5-payload-sdk.zip
 ryan@localhost:~$ sudo unzip -d /opt ps5-payload-sdk.zip
+ryan@localhost:~$ sudo rm ps5-payload-sdk.zip
 ```
 
 E: Unable to locate package clang-18
