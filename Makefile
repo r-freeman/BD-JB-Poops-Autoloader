@@ -83,6 +83,7 @@ discdir/%: discdir
 $(DISC_LABEL).iso: $(DISC_FILES)
 	cp -r BDMV/META discdir/BDMV/
 	cp -r BDMV/BDJO discdir/BDMV/
+	cp -r ps5_autoloader discdir/
 	$(MAKEFS) -m 16m -t udf -o T=bdre,v=2.50,L=$(DISC_LABEL) $@ discdir
 
 clean:
