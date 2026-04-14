@@ -21,6 +21,28 @@ allows execution of [Poops](https://github.com/jaigaresc/Poops-PS5-Java) to take
 * ps5_killdiscplayer.elf automatically closes the disc player.
 * Poops-PS5-Java v1.1 ported to Java by jaigaresc.
 
+## How to use
+
+* Download the [latest release](https://github.com/r-freeman/BD-JB-Poops-Autoloader/releases/latest/download/BD-JB-Poops-Autoloader.iso).
+* Burn the ISO to BD-R or BD-RE using ImgBurn.
+* Format a USB flash drive as exFAT or FAT32.
+* Create `ps5_autoloader` directory on root of the USB flash drive.
+* In the `ps5_autoloader` directory create an `autoload.txt` file.
+* Edit `autoload.txt` with the ELF payloads you want to execute (one per line).
+* Copy the payloads into the `ps5_autoloader` directory.
+* Eject the USB flash drive and plug it into your PS5.
+* Insert the Blu-ray disc into your PS5 and launch the exploit.
+* If the exploit was successful it should load the payloads from the autoload.txt.
+* Use etaHEN's built in FTP server (port 1337) to copy the `ps5_autoloader` directory to `/data`.
+* You can now disconnect the USB flash drive.
+
+Example autoload.txt:
+
+```console
+kstuff.elf
+etaHEN.elf
+```
+
 ## Build and compile
 
 Use Debian-based environment to build and compile the project. I'm
