@@ -7,9 +7,10 @@
 
 package org.bdj.api;
 
+import jdk.internal.misc.Unsafe;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import jdk.internal.misc.Unsafe;
 
 class UnsafeJdkImpl implements UnsafeInterface {
   private static final String GET_MODULE_METHOD_NAME = "getModule";

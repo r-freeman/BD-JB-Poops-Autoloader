@@ -7,7 +7,7 @@
 This project is based on [BD-UN-JB-Poops-Autoloader](https://github.com/owendswang/BD-UN-JB-Poops-Autoloader)
 by [owenswang](https://github.com/owendswang), which is a fork of [BD-UN-JB](https://github.com/Gezine/BD-UN-JB)
 by [Gezine](https://github.com/Gezine). BD-JB-Poops-Autoloader takes advantage of an exploit in the PS5 Blu-ray stack, which
-allows execution of [Poops](https://github.com/jaigaresc/Poops-PS5-Java) to take full control of the PS5 kernel.
+allows execution of [NetPoops-PS5](https://github.com/MassZero0/NetPoops-PS5) to take full control of the PS5 kernel.
 
 ## Requirements
 
@@ -19,7 +19,7 @@ allows execution of [Poops](https://github.com/jaigaresc/Poops-PS5-Java) to take
 
 * ps5_autoload.elf which allows you to load ELF payloads from a USB device.
 * ps5_killdiscplayer.elf automatically closes the disc player.
-* Poops-PS5-Java v1.1 ported to Java by jaigaresc.
+* NetPoops-PS5, sys_netcontrol UAF kernel exploit by MassZero0.
 
 ## How to use
 
@@ -98,6 +98,7 @@ disc using ImgBurn or similar software.
 
 ### Credits
 
+* **[MassZero0](https://github.com/MassZero0)** — [NetPoops-PS5](https://github.com/MassZero0/NetPoops-PS5).
 * **[owendswang](https://github.com/owendswang)** — [BD-UN-JB-Poops-Autoloader](https://github.com/owendswang/BD-UN-JB-Poops-Autoloader).
 * **[jaigaresc](https://github.com/jaigaresc)** — [Poops-PS5-Java](https://github.com/jaigaresc/Poops-PS5-Java).
 * **[Gezine](https://github.com/Gezine/BD-UN-JB)** — BD-UN-JB for basics.  
