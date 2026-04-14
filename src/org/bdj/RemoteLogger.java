@@ -1,7 +1,10 @@
 package org.bdj;
 
-import java.io.*;
-import java.net.*;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
 import java.util.Vector;
 
 
